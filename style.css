@@ -9,13 +9,11 @@ body {
     background-color: #e5d6b8;
     font-family: 'Courier Prime', monospace;
     color: #2b2b2b;
-
     display: flex;
     justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
     padding: 32px 16px;
-
     background-image:
         repeating-linear-gradient(
             0deg,
@@ -26,9 +24,29 @@ body {
         );
 }
 
+#app {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+#preview {
+    flex: 1;
+    min-width: 0;
+}
+
+canvas {
+    width: 100%;
+    display: none;
+    border: 1px solid #3a2f24;
+}
+
+/* ── FORM PANEL ─────────────────────────────── */
+
 #container {
-    width: 360px;
-    padding: 28px;
+    width: 300px;
+    flex-shrink: 0;
+    padding: 24px;
     background-color: #f3e9d2;
     border: 1px solid #3a2f24;
 }
@@ -36,10 +54,10 @@ body {
 h1 {
     text-align: center;
     font-family: 'Special Elite', cursive;
-    font-size: 18px;
+    font-size: 16px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin: 0 0 18px;
+    margin: 0 0 20px;
     color: #1f2a44;
 }
 
@@ -51,64 +69,79 @@ h1::after {
 }
 
 .form-group {
-    margin-bottom: 18px;
-}
-
-#category:hover, #direction:hover, button#generate:hover, #date:hover {
-    background-color: hsl(40, 46%, 81%);
-    cursor: pointer;
+    margin-bottom: 16px;
 }
 
 label {
     display: block;
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #5a4632;
     margin-bottom: 4px;
 }
 
-input, select {
+input,
+select {
     width: 100%;
     border: none;
     border-bottom: 1px solid #5a4632;
     background: transparent;
-    padding: 6px 2px;
+    padding: 5px 2px;
     font-family: 'Courier Prime', monospace;
-    font-size: 14px;
+    font-size: 13px;
     color: #2b2b2b;
 }
 
-input:focus, select:focus {
+input:focus,
+select:focus {
     outline: none;
     border-bottom: 1px solid #1f2a44;
 }
 
+input::placeholder {
+    color: #b0a090;
+    font-size: 12px;
+}
+
 select {
     appearance: none;
+    cursor: pointer;
+}
+
+#category:hover,
+#direction:hover,
+#date:hover {
+    background-color: hsl(40, 46%, 83%);
+    cursor: pointer;
 }
 
 button#generate {
-    margin-top: 20px;
+    margin-top: 18px;
     width: 100%;
-    padding: 10px;
+    padding: 9px;
     background: transparent;
     color: #8b2e2e;
     border: 1px solid #8b2e2e;
     font-family: 'Special Elite', cursive;
     letter-spacing: 2px;
+    font-size: 13px;
     text-transform: uppercase;
     cursor: pointer;
+    transition: background 0.15s;
 }
 
+button#generate:hover {
+    background-color: hsl(40, 46%, 81%);
+}
 
 button#generate:active {
     transform: translateY(1px);
 }
 
-#download {
+button#download {
     display: none;
-    margin-top: 12px;
+    margin-top: 10px;
     width: 100%;
     padding: 8px;
     background: transparent;
@@ -116,20 +149,12 @@ button#generate:active {
     border: 1px solid #1f2a44;
     font-family: 'Special Elite', cursive;
     letter-spacing: 2px;
+    font-size: 13px;
     text-transform: uppercase;
     cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    font-size: 13px;
+    transition: background 0.15s;
 }
 
-#download:hover {
+button#download:hover {
     background-color: hsl(40, 46%, 81%);
-}
-
-canvas {
-    margin-top: 20px;
-    width: 100%;
-    display: none;
-    border-top: 1px solid #3a2f24;
 }
